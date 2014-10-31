@@ -43,7 +43,13 @@ BufMgr::BufMgr(const int bufs)
 
 BufMgr::~BufMgr() {
 	// TODO: Implement this method by looking at the description in the writeup.
-    
+    for(int i = 0; i < numBufs; i ++){
+        if(bufTable[i].valid)
+            flushFile(bufTable[i].file);
+    }
+    delete[] bufTable;
+    delete[] bufPool;
+    delete hashTable;
 }
 
 
