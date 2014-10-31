@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		84C43EC81A0313F60004ACAA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84C43EC71A0313F60004ACAA /* main.cpp */; };
 		84C43ED91A03141B0004ACAA /* buf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84C43ECE1A03141B0004ACAA /* buf.cpp */; };
 		84C43EDA1A03141B0004ACAA /* bufHash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84C43ED01A03141B0004ACAA /* bufHash.cpp */; };
 		84C43EDB1A03141B0004ACAA /* db.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84C43ED11A03141B0004ACAA /* db.cpp */; };
@@ -31,7 +30,6 @@
 
 /* Begin PBXFileReference section */
 		84C43EC41A0313F60004ACAA /* CS564-Project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CS564-Project"; sourceTree = BUILT_PRODUCTS_DIR; };
-		84C43EC71A0313F60004ACAA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		84C43ECE1A03141B0004ACAA /* buf.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buf.cpp; sourceTree = "<group>"; };
 		84C43ECF1A03141B0004ACAA /* buf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buf.h; sourceTree = "<group>"; };
 		84C43ED01A03141B0004ACAA /* bufHash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bufHash.cpp; sourceTree = "<group>"; };
@@ -86,12 +84,28 @@
 				84C43ED61A03141B0004ACAA /* page.cpp */,
 				84C43ED71A03141B0004ACAA /* page.h */,
 				84C43ED81A03141B0004ACAA /* testbuf.cpp */,
-				84C43EC71A0313F60004ACAA /* main.cpp */,
 			);
 			path = "CS564-Project";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		84C43EE11A0317ED0004ACAA /* Project */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 84C43EE21A0317ED0004ACAA /* Build configuration list for PBXLegacyTarget "Project" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "/Users/wwu/Documents/CourseWork/CS564/Project/CS564-Project/CS564-Project";
+			dependencies = (
+			);
+			name = Project;
+			passBuildSettingsInEnvironment = 1;
+			productName = Project;
+		};
+/* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
 		84C43EC31A0313F60004ACAA /* CS564-Project */ = {
@@ -123,6 +137,9 @@
 					84C43EC31A0313F60004ACAA = {
 						CreatedOnToolsVersion = 6.1;
 					};
+					84C43EE11A0317ED0004ACAA = {
+						CreatedOnToolsVersion = 6.1;
+					};
 				};
 			};
 			buildConfigurationList = 84C43EBF1A0313F60004ACAA /* Build configuration list for PBXProject "CS564-Project" */;
@@ -138,6 +155,7 @@
 			projectRoot = "";
 			targets = (
 				84C43EC31A0313F60004ACAA /* CS564-Project */,
+				84C43EE11A0317ED0004ACAA /* Project */,
 			);
 		};
 /* End PBXProject section */
@@ -150,7 +168,6 @@
 				84C43EDE1A03141B0004ACAA /* page.cpp in Sources */,
 				84C43EDF1A03141B0004ACAA /* testbuf.cpp in Sources */,
 				84C43EDD1A03141B0004ACAA /* Makefile in Sources */,
-				84C43EC81A0313F60004ACAA /* main.cpp in Sources */,
 				84C43EDB1A03141B0004ACAA /* db.cpp in Sources */,
 				84C43EDA1A03141B0004ACAA /* bufHash.cpp in Sources */,
 				84C43ED91A03141B0004ACAA /* buf.cpp in Sources */,
@@ -249,6 +266,31 @@
 			};
 			name = Release;
 		};
+		84C43EE31A0317ED0004ACAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUGGING_SYMBOLS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		84C43EE41A0317ED0004ACAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -268,6 +310,16 @@
 				84C43ECD1A0313F60004ACAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84C43EE21A0317ED0004ACAA /* Build configuration list for PBXLegacyTarget "Project" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84C43EE31A0317ED0004ACAA /* Debug */,
+				84C43EE41A0317ED0004ACAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
