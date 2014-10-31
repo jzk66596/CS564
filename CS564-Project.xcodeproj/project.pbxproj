@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		84C43EC81A0313F60004ACAA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84C43EC71A0313F60004ACAA /* main.cpp */; };
+		84C43ED91A03141B0004ACAA /* buf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84C43ECE1A03141B0004ACAA /* buf.cpp */; };
+		84C43EDA1A03141B0004ACAA /* bufHash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84C43ED01A03141B0004ACAA /* bufHash.cpp */; };
+		84C43EDB1A03141B0004ACAA /* db.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84C43ED11A03141B0004ACAA /* db.cpp */; };
+		84C43EDC1A03141B0004ACAA /* error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84C43ED31A03141B0004ACAA /* error.cpp */; };
+		84C43EDD1A03141B0004ACAA /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 84C43ED51A03141B0004ACAA /* Makefile */; };
+		84C43EDE1A03141B0004ACAA /* page.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84C43ED61A03141B0004ACAA /* page.cpp */; };
+		84C43EDF1A03141B0004ACAA /* testbuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84C43ED81A03141B0004ACAA /* testbuf.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +32,17 @@
 /* Begin PBXFileReference section */
 		84C43EC41A0313F60004ACAA /* CS564-Project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CS564-Project"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C43EC71A0313F60004ACAA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		84C43ECE1A03141B0004ACAA /* buf.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buf.cpp; sourceTree = "<group>"; };
+		84C43ECF1A03141B0004ACAA /* buf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buf.h; sourceTree = "<group>"; };
+		84C43ED01A03141B0004ACAA /* bufHash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bufHash.cpp; sourceTree = "<group>"; };
+		84C43ED11A03141B0004ACAA /* db.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = db.cpp; sourceTree = "<group>"; };
+		84C43ED21A03141B0004ACAA /* db.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = db.h; sourceTree = "<group>"; };
+		84C43ED31A03141B0004ACAA /* error.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = error.cpp; sourceTree = "<group>"; };
+		84C43ED41A03141B0004ACAA /* error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = error.h; sourceTree = "<group>"; };
+		84C43ED51A03141B0004ACAA /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		84C43ED61A03141B0004ACAA /* page.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = page.cpp; sourceTree = "<group>"; };
+		84C43ED71A03141B0004ACAA /* page.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = page.h; sourceTree = "<group>"; };
+		84C43ED81A03141B0004ACAA /* testbuf.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testbuf.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +75,17 @@
 		84C43EC61A0313F60004ACAA /* CS564-Project */ = {
 			isa = PBXGroup;
 			children = (
+				84C43ECE1A03141B0004ACAA /* buf.cpp */,
+				84C43ECF1A03141B0004ACAA /* buf.h */,
+				84C43ED01A03141B0004ACAA /* bufHash.cpp */,
+				84C43ED11A03141B0004ACAA /* db.cpp */,
+				84C43ED21A03141B0004ACAA /* db.h */,
+				84C43ED31A03141B0004ACAA /* error.cpp */,
+				84C43ED41A03141B0004ACAA /* error.h */,
+				84C43ED51A03141B0004ACAA /* Makefile */,
+				84C43ED61A03141B0004ACAA /* page.cpp */,
+				84C43ED71A03141B0004ACAA /* page.h */,
+				84C43ED81A03141B0004ACAA /* testbuf.cpp */,
 				84C43EC71A0313F60004ACAA /* main.cpp */,
 			);
 			path = "CS564-Project";
@@ -118,7 +147,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C43EDE1A03141B0004ACAA /* page.cpp in Sources */,
+				84C43EDF1A03141B0004ACAA /* testbuf.cpp in Sources */,
+				84C43EDD1A03141B0004ACAA /* Makefile in Sources */,
 				84C43EC81A0313F60004ACAA /* main.cpp in Sources */,
+				84C43EDB1A03141B0004ACAA /* db.cpp in Sources */,
+				84C43EDA1A03141B0004ACAA /* bufHash.cpp in Sources */,
+				84C43ED91A03141B0004ACAA /* buf.cpp in Sources */,
+				84C43EDC1A03141B0004ACAA /* error.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
