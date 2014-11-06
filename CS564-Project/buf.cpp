@@ -63,8 +63,6 @@ const Status BufMgr::allocBuf(int & frame) {
     while(true){
         //If not valid frame, return this frame
         if(!bufTable[clockHand].valid){
-            bufTable[clockHand].valid = true;
-            bufTable[clockHand].refbit = true;
             frame = clockHand;
             return OK;
         }
@@ -84,10 +82,12 @@ const Status BufMgr::allocBuf(int & frame) {
         }
         //If dirty, flush this page and return this frame.
         frame = clockHand;
-        hashTable->remove(bufTable[clockHand].file, bufTable[clockHand].pageNo);
+        Status hashRemove = hashTable->remove(bufTable[clockHand].file, bufTable[clockHand].pageNo);
+        if(hashRemove != OK)    return hashRemove;
         if(bufTable[clockHand].dirty){
-            bufTable[clockHand].file->writePage(bufTable[clockHand].pageNo, &bufPool[clockHand]);
-            return OK;
+            Status writePage = bufTable[clockHand].file->writePage(bufTable[clockHand].pageNo, &bufPool[clockHand]);
+            bufTable[clockHand].Clear();
+            return writePage;
         }
         return OK;
     }
@@ -112,13 +112,16 @@ const Status BufMgr::readPage(File* file, const int PageNo, Page*& page) {
             page = &bufPool[frameNo];
             Status readStatus = file->readPage(PageNo, page);
             if(readStatus == OK){
-                hashTable->insert(file, PageNo, frameNo);
+                Status hashInsert = hashTable->insert(file, PageNo, frameNo);
+                if(hashInsert != OK){
+                    return hashInsert;
+                }
                 bufTable[frameNo].Set(file, PageNo);
                 return OK;
             }
             return readStatus;
-            
         }
+        return status;
     }
 	return hashStatus;
 }
@@ -136,6 +139,7 @@ const Status BufMgr::unPinPage(File* file, const int PageNo,
         }
         //if pinCnt is not zero, minus one
         bufTable[frameNo].pinCnt--;
+        //If dirty is true, set the dirty bit to be true
         if(dirty)   bufTable[frameNo].dirty = true;
         return OK;
     }
@@ -169,6 +173,7 @@ const Status BufMgr::allocPage(File* file, int& pageNo, Page*& page)  {
 const Status BufMgr::disposePage(File* file, const int pageNo) {
 	// TODO: Implement this method by looking at the description in the writeup.
     int frameNo = 0;
+    cout << "!!!" << endl;
     //If page in the buffer pool, dispose it
     Status hashStatus = hashTable->lookup(file, pageNo, frameNo);
     if(hashStatus == OK){
@@ -185,12 +190,15 @@ const Status BufMgr::disposePage(File* file, const int pageNo) {
 
 const Status BufMgr::flushFile(const File* file) {
 	// TODO: Implement this method by looking at the description in the writeup.
-    for(int i = 0; i < numBufs; i ++){
-        //flush every page for this file to disk.
-        if(bufTable[i].file == file){
+    //Check whether all pages are unpined, otherwise return PAGEPINNED.
+    for(int i = 0; i < numBufs; i ++)
+        if(bufTable[i].file == file)
             if(bufTable[i].pinCnt > 0){
                 return PAGEPINNED;
             }
+    for(int i = 0; i < numBufs; i ++){
+        //flush every page for this file to disk.
+        if(bufTable[i].file == file){
             //If the file is dirty, write to the disk
             if(bufTable[i].dirty){
                 const Page* p =  &bufPool[i];
