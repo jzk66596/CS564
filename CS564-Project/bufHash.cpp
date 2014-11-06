@@ -12,7 +12,7 @@
 
 int BufHashTbl::hash(const File* file, const int pageNo)
 {
-  int tmp, value;
+  long tmp, value;
   tmp = (long)file;  // cast of pointer to the file object to an integer
   value = (tmp + pageNo) % HTSIZE;
   return value;
@@ -49,9 +49,7 @@ BufHashTbl::~BufHashTbl()
 //---------------------------------------------------------------
 
 Status BufHashTbl::insert(const File* file, const int pageNo, const int frameNo) {
-
   int index = hash(file, pageNo);
-
   hashBucket* tmpBuc = ht[index];
   while (tmpBuc) {
     if (tmpBuc->file == file && tmpBuc->pageNo == pageNo)
